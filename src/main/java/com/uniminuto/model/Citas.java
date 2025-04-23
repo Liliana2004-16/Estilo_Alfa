@@ -20,11 +20,14 @@ public class Citas implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 
+	@Column(name="estado")
 	private String estado;
 
 	@Temporal(TemporalType.DATE)
+	@Column(name="fecha")
 	private Date fecha;
 
+	@Column(name="hora")
 	private Time hora;
 
 	//bi-directional many-to-one association to Servicio

@@ -25,8 +25,10 @@ public class Servicio implements Serializable {
 	@Column(name="duracion_minutos")
 	private int duracionMinutos;
 
+	@Column(name="nombre")
 	private String nombre;
 
+	@Column(name="precio")
 	private BigDecimal precio;
 
 	//bi-directional many-to-one association to citas
