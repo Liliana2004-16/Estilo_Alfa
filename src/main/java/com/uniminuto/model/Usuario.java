@@ -21,7 +21,7 @@ public class Usuario implements Serializable {
 	private int id;
 
 	@Column(name="contraseña")
-	private String contraseña;
+	private String password;
 
 	@Column(name="correo")
 	private String correo;
@@ -48,11 +48,11 @@ public class Usuario implements Serializable {
 	}
 
 	public String getContraseña() {
-		return this.contraseña;
+		return this.password;
 	}
 
-	public void setContraseña(String contraseña) {
-		this.contraseña = contraseña;
+	public void setContraseña(String password) {
+		this.password = password;
 	}
 
 	public String getCorreo() {

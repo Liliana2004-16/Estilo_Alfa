@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 import com.uniminuto.model.Usuario;
 
 @Repository
-public interface UsuarioJpa extends JpaRepository<Usuario, UsuarioDaoI> {
-
+public interface UsuarioJpa extends JpaRepository<Usuario, Integer> {
+	Usuario findByCorreo(String correo);
+	
 }
