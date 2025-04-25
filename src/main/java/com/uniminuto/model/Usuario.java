@@ -21,7 +21,7 @@ public class Usuario implements Serializable {
 	private int id;
 
 	@Column(name="contraseña")
-	private String password;
+	private String contraseña;
 
 	@Column(name="correo")
 	private String correo;
@@ -33,7 +33,7 @@ public class Usuario implements Serializable {
 	private String rol;
 
 	//bi-directional many-to-one association to citas
-	@OneToMany(mappedBy="usuario")
+	@OneToMany(mappedBy="usuarioId")
 	private List<Citas> citas;
 
 	public Usuario() {
@@ -48,11 +48,11 @@ public class Usuario implements Serializable {
 	}
 
 	public String getContraseña() {
-		return this.password;
+		return this.contraseña;
 	}
 
-	public void setContraseña(String password) {
-		this.password = password;
+	public void setContraseña(String contraseña) {
+		this.contraseña = contraseña;
 	}
 
 	public String getCorreo() {

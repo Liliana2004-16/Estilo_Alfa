@@ -32,7 +32,7 @@ public class Servicio implements Serializable {
 	private BigDecimal precio;
 
 	//bi-directional many-to-one association to citas
-	@OneToMany(mappedBy="servicio")
+	@OneToMany(mappedBy="servicioId")
 	private List<Citas> citas;
 
 	public Servicio() {

@@ -12,7 +12,7 @@ import java.util.Date;
  */
 @Entity
 @Table(name="citas")
-@NamedQuery(name="citas.findAll", query="SELECT c FROM citas c")
+@NamedQuery(name="Citas.findAll", query="SELECT c FROM Citas c")
 public class Citas implements Serializable {
 	private static final long serialVersionUID = 1L;
 
