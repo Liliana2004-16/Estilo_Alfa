@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-
+@RequestMapping("/usuarios")
 public class UsuarioController {
 
     @Autowired
@@ -27,13 +27,6 @@ public class UsuarioController {
         }
     }
 
-
-    /*POST - Registro de usuario
-    @PostMapping("/registro")
-    public ResponseEntity<Usuario> registrarUsuario(@RequestBody Usuario usuario) {
-        Usuario nuevo = usuarioService.saveUsuario(usuario);
-        return new ResponseEntity<>(nuevo, HttpStatus.CREATED);
-    }*/
 
     // PUT - Actualizar usuario
     @PutMapping("/actualizar")
