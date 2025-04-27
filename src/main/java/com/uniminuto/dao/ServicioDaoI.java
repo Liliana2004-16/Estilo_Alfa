@@ -8,7 +8,7 @@ public interface ServicioDaoI {
 	Servicio addServicio (Servicio servicio);//Agregar Servicio
 	Servicio updateUsuario (Servicio servicio);//Agregar Actualizar Servicio
 	void deleteld(int id);//Eliminar Servicio
-	Servicio searchServicio(int id);// Busqueda por id de Servicio
-	List<Servicio> getServicio();// Lista de Servicios
+	Servicio searchServicio(int id);
+	List<Servicio> getServicio();
 
 }
