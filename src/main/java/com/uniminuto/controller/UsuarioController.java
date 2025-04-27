@@ -23,7 +23,7 @@ public class UsuarioController {
             usuario.setNombre("Error: Nombre vacío");
         }
 
-        // Validación de correo (contenido y dominio)
+        // Validación de correo 
         if (usuario.getCorreo() == null || usuario.getCorreo().trim().isEmpty()) {
             usuario.setCorreo("Error: Correo vacío");
         } else if (!usuario.getCorreo().contains("@") || !usuario.getCorreo().endsWith("@gmail.com")) {
@@ -70,6 +70,7 @@ public class UsuarioController {
     public ResponseEntity<Usuario> updateUsuario(@RequestBody Usuario usuario){
     	return new ResponseEntity<Usuario>(usuarioService.upUsuario(usuario),HttpStatus.ALREADY_REPORTED);
     }*/
+    
     @PutMapping(value = "usuario/actualizar", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> updateUsuario(@RequestBody Usuario usuario) {
         try {
