@@ -7,6 +7,8 @@ import org.springframework.stereotype.Repository;
 
 import com.uniminuto.model.Usuario;
 
+import jakarta.transaction.Transactional;
+
 @Repository
 public class UsuarioDao implements UsuarioDaoI{
 	
@@ -25,9 +27,12 @@ public class UsuarioDao implements UsuarioDaoI{
 	}
 
 	@Override
-	public void deleteId(int id) {
-		// TODO Auto-generated method stub
-		
+	@Transactional
+	 public void deleteId(int id) {
+	    Usuario usuario = Jpa.findById(id)
+	            .orElseThrow();
+	        
+	    	Jpa.delete(usuario);
 	}
 
 	@Override

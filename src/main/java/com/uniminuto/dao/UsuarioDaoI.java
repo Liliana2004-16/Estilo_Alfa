@@ -13,5 +13,6 @@ public interface UsuarioDaoI {
 	Usuario searchUsuariocorreo(String correo);//Busqueda por correo
 	List<Usuario> getUsuario();// lista de usuarios
 
+
 	
 }

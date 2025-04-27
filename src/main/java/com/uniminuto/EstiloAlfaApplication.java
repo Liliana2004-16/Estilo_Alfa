@@ -11,7 +11,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @SpringBootApplication
 @EntityScan(basePackages = {"com.uniminuto.model"})
 @EnableJpaRepositories(basePackages = {"com.uniminuto.dao"})
-@ComponentScan(basePackages = {"com.uniminuto.sevice","com.uniminuto.controller","com.uniminuto"})
+@ComponentScan(basePackages = {"com.uniminuto.sevice","com.uniminuto.controller","com.uniminuto.security","com.uniminuto"})
 public class EstiloAlfaApplication {
 
 	public static void main(String[] args) {
