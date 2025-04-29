@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api") // Opcional, para mejor organización
+@RequestMapping("/api")
 public class UsuarioController {
 
     @Autowired

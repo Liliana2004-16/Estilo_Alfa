@@ -16,14 +16,12 @@ public class Usuario {
 
     private String nombre;
     private String correo;
-    private String contraseña; // Este campo es el que te falta
-    private String rol;         // Este campo también
+    private String contraseña;
+    private String rol;
 
-    // Constructor vacío
     public Usuario() {
     }
 
-    // Constructor con campos
     public Usuario(int id, String nombre, String correo, String contraseña, String rol) {
         this.id = id;
         this.nombre = nombre;
@@ -32,7 +30,6 @@ public class Usuario {
         this.rol = rol;
     }
 
-    // Getters y Setters
     public int getId() {
         return id;
     }

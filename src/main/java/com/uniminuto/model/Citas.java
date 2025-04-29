@@ -11,17 +11,23 @@ public class Citas {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "fecha_hora")
     private LocalDateTime fechaHora;
+
     private String descripcion;
 
     @ManyToOne
-    @JoinColumn(name = "usuario_id")
+    @JoinColumn(name = "usuario_id", referencedColumnName = "id")
     private Usuario usuario;
 
-    // Constructor vacío
     public Citas() {}
 
-    // Getters y Setters
+    public Citas(LocalDateTime fechaHora, String descripcion, Usuario usuario) {
+        this.fechaHora = fechaHora;
+        this.descripcion = descripcion;
+        this.usuario = usuario;
+    }
+
     public Long getId() {
         return id;
     }
@@ -52,5 +58,10 @@ public class Citas {
 
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
+    }
+
+    @Override
+    public String toString() {
+        return "Citas{id=" + id + ", fechaHora=" + fechaHora + ", descripcion='" + descripcion + "', usuario=" + usuario + "}";
     }
 }
