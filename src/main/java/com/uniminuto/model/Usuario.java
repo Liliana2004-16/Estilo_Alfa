@@ -1,104 +1,75 @@
 package com.uniminuto.model;
 
-import java.io.Serializable;
-import jakarta.persistence.*;
-import java.util.List;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
-
-/**
- * The persistent class for the usuarios database table.
- * 
- */
 @Entity
-@Table(name="usuarios")
-@NamedQuery(name="Usuario.findAll", query="SELECT u FROM Usuario u")
-public class Usuario implements Serializable {
-	private static final long serialVersionUID = 1L;
+@Table(name = "usuarios")
+public class Usuario {
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id")
-	private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
-	@Column(name="contraseña")
-	private String contraseña;
+    private String nombre;
+    private String correo;
+    private String contraseña; // Este campo es el que te falta
+    private String rol;         // Este campo también
 
-	@Column(name="correo")
-	private String correo;
+    // Constructor vacío
+    public Usuario() {
+    }
 
-	@Column(name="nombre")
-	private String nombre;
+    // Constructor con campos
+    public Usuario(int id, String nombre, String correo, String contraseña, String rol) {
+        this.id = id;
+        this.nombre = nombre;
+        this.correo = correo;
+        this.contraseña = contraseña;
+        this.rol = rol;
+    }
 
-	@Column(name="rol")
-	private String rol;
+    // Getters y Setters
+    public int getId() {
+        return id;
+    }
 
-	//bi-directional many-to-one association to citas
-	@OneToMany(mappedBy="usuarioId")
-	private List<Citas> citas;
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public Usuario() {
-	}
+    public String getNombre() {
+        return nombre;
+    }
 
-	public int getId() {
-		return this.id;
-	}
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public String getCorreo() {
+        return correo;
+    }
 
-	public String getContraseña() {
-		return this.contraseña;
-	}
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
 
-	public void setContraseña(String contraseña) {
-		this.contraseña = contraseña;
-	}
+    public String getContraseña() {
+        return contraseña;
+    }
 
-	public String getCorreo() {
-		return this.correo;
-	}
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
+    }
 
-	public void setCorreo(String correo) {
-		this.correo = correo;
-	}
+    public String getRol() {
+        return rol;
+    }
 
-	public String getNombre() {
-		return this.nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-	public String getRol() {
-		return this.rol;
-	}
-
-	public void setRol(String rol) {
-		this.rol = rol;
-	}
-
-	public List<Citas> getCitas() {
-		return this.citas;
-	}
-
-	public void setCitas(List<Citas> citas) {
-		this.citas = citas;
-	}
-
-	public Citas addCita(Citas cita) {
-		getCitas().add(cita);
-		cita.setUsuarioId(this);
-
-		return cita;
-	}
-
-	public Citas removeCita(Citas cita) {
-		getCitas().remove(cita);
-		cita.setUsuarioId(null);
-
-		return cita;
-	}
-
+    public void setRol(String rol) {
+        this.rol = rol;
+    }
 }
