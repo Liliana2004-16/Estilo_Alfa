@@ -1,95 +1,49 @@
 package com.uniminuto.model;
 
-import java.io.Serializable;
 import jakarta.persistence.*;
-import java.math.BigDecimal;
-import java.util.List;
 
-
-
-
-/**
- * The persistent class for the servicios database table.
- * 
- */
 @Entity
-@Table(name="servicios")
-@NamedQuery(name="Servicio.findAll", query="SELECT s FROM Servicio s")
-public class Servicio implements Serializable {
-	private static final long serialVersionUID = 1L;
+@Table(name = "servicios") 
+public class Servicio {
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-	@Column(name="duracion_minutos")
-	private int duracionMinutos;
+    private String nombre;
+    private String descripcion;
+    private Double precio;
 
-	@Column(name="nombre")
-	private String nombre;
+    // Getters y Setters
+    public Long getId() {
+        return id;
+    }
 
-	@Column(name="precio")
-	private BigDecimal precio;
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	//bi-directional many-to-one association to citas
-	@OneToMany(mappedBy="servicioId")
-	private List<Citas> citas;
+    public String getNombre() {
+        return nombre;
+    }
 
-	public Servicio() {
-	}
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
-	public int getId() {
-		return this.id;
-	}
+    public String getDescripcion() {
+        return descripcion;
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
 
-	public int getDuracionMinutos() {
-		return this.duracionMinutos;
-	}
+    public Double getPrecio() {
+        return precio;
+    }
 
-	public void setDuracionMinutos(int duracionMinutos) {
-		this.duracionMinutos = duracionMinutos;
-	}
-
-	public String getNombre() {
-		return this.nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-	public BigDecimal getPrecio() {
-		return this.precio;
-	}
-
-	public void setPrecio(BigDecimal precio) {
-		this.precio = precio;
-	}
-
-	public List<Citas> getCitas() {
-		return this.citas;
-	}
-
-	public void setCitas(List<Citas> citas) {
-		this.citas = citas;
-	}
-
-	public Citas addCita(Citas cita) {
-		getCitas().add(cita);
-		cita.setServicioId(this);
-
-		return cita;
-	}
-
-	public Citas removeCita(Citas cita) {
-		getCitas().remove(cita);
-		cita.setServicioId(null);
-
-		return cita;
-	}
-
+    public void setPrecio(Double precio) {
+        this.precio = precio;
+    }
 }
